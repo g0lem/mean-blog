@@ -71,7 +71,7 @@ module.exports = function(app, auth, mongoose){
 
     var stripedName = req.params.query; //secure it
     
-    Post.find({$or: [ {author: {'$regex': stripedName, $options:'i' } }, {title: {'$regex': stripedName, $options:'i' } }, {tags: {'$regex': stripedName, $options:'i' } }, {date: {'$regex': stripedName, $options:'i' } }]},, function(err, result){
+    Post.find({$or: [ {author: {'$regex': stripedName, $options:'i' } }, {title: {'$regex': stripedName, $options:'i' } }, {tags: {'$regex': stripedName, $options:'i' } }, {date: {'$regex': stripedName, $options:'i' } }]}, function(err, result){
 
       if(!err && result){
         res.send(result);

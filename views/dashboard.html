@@ -2,6 +2,10 @@
 <html>
 <head lang="en">
 	<title>Project 50%</title>
+
+	<link rel="stylesheet" href="/packages/bootstrap.min.css">
+	<link rel="stylesheet" href="/packages/clean-blog.css">
+
 	<script type="text/javascript" src="/packages/angular.min.js"></script>
 	<script type="text/javascript" src="packages/angular-route.min.js"></script>
   	<script type="text/javascript" src="packages/angular-ui-router.js"></script>
@@ -12,10 +16,53 @@
 </head>
 <body ng-app="BlogApp">
 
-<button>Home</button><button>Create Post</button> <!-- Jquery to change the display here -->
+	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="" id="viewpost">View Posts</a>
+                    </li>
+                    <li>
+                        <a href="" id="createpost">Create Post</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-<div ui-view="viewPost"></div>
-<div ui-view="createPost"></div>
+    <header class="intro-header container red">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Project 50%</h1>
+                        <hr class="small">
+                        <span class="subheading">Sharing is caring.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<br>
+ <!-- Jquery to change the display here -->
+
+<div id="viewPostDiv" ui-view="viewPost"></div>
+
+<div id="createPostDiv" ui-view="createPost" class="displayNone"></div>
 
 
 

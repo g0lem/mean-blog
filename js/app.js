@@ -127,8 +127,8 @@
                          , fetcher
                         ){
 
-    $scope.search = false;
-
+    fetcher.getPosts().then(function(response){ $scope.posts = response; });
+    
     $scope.changePage = function(number){
       $location.url("?page="+number);
       if(!$scope.search){
@@ -146,7 +146,19 @@
       $scope.search = true;
     }
 
-    $scope.changePage(1);
+    $scope.getProperDate = function(date){
+      var monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"
+                      ];
+      var dateObj = new Date(date);
+      var month = monthNames[dateObj.getMonth()]; //months from 1-12
+      var day = dateObj.getDate();
+      var year = dateObj.getFullYear();
+
+      return month + " " + day + " " + year;
+    }
+
+    //$scope.changePage(1);
 
     window.sc = $scope;
 
@@ -179,6 +191,7 @@
 
     $scope.createPost = function(){
       fetcher.createPost($scope.postToCreate); //do postToCreate.something model in html
+      switchToViewPost(); //call to jquery to switch
     }
 
     window.sc2 = $scope;

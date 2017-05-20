@@ -1,11 +1,17 @@
-<div>
-	
+
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+	     <div class="form-group col-xs-12 floating-label-form-group controls">
+            	<input type="text" class="form-control" name="" placeholder="Search for post"> 
+        </div>
 	<div ng-repeat="post in posts">
-		
-	<h1>{{post.title}}</h1>
-	<h3>{{post.author}}</h3>
-	<h5>{{post.date}}</h5>
-	<p>post.content</p>
+	
+	<br><br>		
+	<a href="" ng-click=""> <!-- do something to make this show you the post -->
+		<h2 class="post-title">{{post.title}}</h2>
+		<p class="post-subtitle">{{post.preview}}</p>
+		<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}}</p>
+	</a>
 
 	</div>
 

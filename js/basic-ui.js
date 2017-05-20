@@ -45,3 +45,27 @@ $(function(){
         };
      });
 });
+
+
+function switchToViewPost(){
+
+    $("#viewPostDiv").removeClass("displayNone");  
+    $("#createPostDiv").addClass("displayNone");
+
+}
+
+function switchToCreatePost(){
+
+    $("#createPostDiv").removeClass("displayNone");  
+    $("#viewPostDiv").addClass("displayNone");
+
+}
+
+
+$("#viewpost").on('click', function(){
+    switchToViewPost()
+});
+
+$("#createpost").on('click', function(){
+    switchToCreatePost();
+});

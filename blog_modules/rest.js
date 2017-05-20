@@ -39,7 +39,7 @@ module.exports = function(app, auth, mongoose){
       else{
         res.send("No results found");
       }
-    }).skip(parseInt(req.params.number-1)*10).limit(10);
+    }).sort({date: -1}).skip(parseInt(req.params.number-1)*10).limit(10);
 
   });
 
@@ -56,7 +56,7 @@ module.exports = function(app, auth, mongoose){
       else{
         res.send("No results found");
       }
-    }).skip(parseInt(req.params.number-1)*10).limit(10);
+    }).sort({date: parseInt(-1)}).skip(parseInt(req.params.number-1)*10).limit(10);
 
   });
 
@@ -68,7 +68,7 @@ module.exports = function(app, auth, mongoose){
     //check here
 
 
-    var post = new Post({author: req.cookies.username, title: req.body.title, date: new Date(), content: req.body.content, tags: req.body.tags});
+    var post = new Post({author: req.cookies.username, title: req.body.title, date: new Date(), preview: req.body.content.substring(0,50) + "...", content: req.body.content, tags: req.body.tags});
     post.save();
 
 

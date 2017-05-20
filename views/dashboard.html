@@ -6,13 +6,20 @@
 	<link rel="stylesheet" href="/packages/bootstrap.min.css">
 	<link rel="stylesheet" href="/packages/clean-blog.css">
 
+
 	<script type="text/javascript" src="/packages/angular.min.js"></script>
 	<script type="text/javascript" src="packages/angular-route.min.js"></script>
   	<script type="text/javascript" src="packages/angular-ui-router.js"></script>
+  	 <script src="packages/angular-sanitize.min.js"></script>
 	<script type="text/javascript" src="/packages/jquery-1.11.3.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/packages/trix.css">
+  	<script type="text/javascript" src="/packages/trix.js"></script>
 
 
 	<script type="text/javascript" src="/js/app.js"></script>
+
+
 </head>
 <body ng-app="BlogApp">
 
@@ -47,7 +54,8 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Project 50%</h1>
+                    	<h1 id="home" style="cursor: pointer;"> Project 50% </h1>
+                        
                         <hr class="small">
                         <span class="subheading">Sharing is caring.</span>
                     </div>
@@ -64,7 +72,7 @@
 
 <div id="createPostDiv" ui-view="createPost" class="displayNone"></div>
 
-
+<button onclick="topFunction()" class="btn topButton topButton-default" title="Go to top" id="topBtn"> ^ </button>
 
 <script type="text/javascript" src="/js/basic-ui.js"></script>
 </body>

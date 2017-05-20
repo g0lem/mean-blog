@@ -1,19 +1,44 @@
+<div class="container row">
+	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="postPreview">
 
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+		<div class="form-group col-xs-12 floating-label-form-group controls">
+	        <input type="text" class="form-control" name="" placeholder="Search for post"> 
+	    </div>
 
-	     <div class="form-group col-xs-12 floating-label-form-group controls">
-            	<input type="text" class="form-control" name="" placeholder="Search for post"> 
-        </div>
-	<div ng-repeat="post in posts">
-	
-	<br><br>		
-	<a href="" ng-click=""> <!-- do something to make this show you the post -->
-		<h2 class="post-title">{{post.title}}</h2>
-		<p class="post-subtitle">{{post.preview}}</p>
-		<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}}</p>
-	</a>
+		<div ng-repeat="post in posts track by $index">
+		
+			<br><br>		
+			<a href="" ng-click="selectPost(post)"> <!-- do something to make this show you the post -->
+				<h2 class="post-title"> {{post.title}}</h2>
+			</a>
+				<p class="post-subtitle " ng-bind-html="post.preview"></p>
+				<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}}</p>
+
+
+		</div>
+
 
 	</div>
 
 
+
+	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 displayNone" id="selectedPost">
+
+		<div class="form-group col-xs-12 floating-label-form-group controls">
+	        <a href="" ng-click="goBackButton()"> < Go back</a>
+	    </div>
+
+		
+		<br><br>		
+		<a href=""> <!-- do something to make this show you the post -->
+			<h2 class="post-title">{{selectedPost.title}}</h2>
+		</a>
+			<p class="post-subtitle" ng-bind-html="selectedPost.content"></p>
+			<p class=post-meta> <a href="">{{selectedPost.author}}</a> {{getProperDate(selectedPost.date)}}</p>
+		
+
+		
+
+
+	</div>
 </div>

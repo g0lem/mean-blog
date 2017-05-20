@@ -6,7 +6,7 @@
   //* here we define our app in angular *
   //*************************************
 
-  angular.module('BlogApp', ['ui.router']); //'ngRoute',
+  angular.module('BlogApp', ['ui.router', 'ngSanitize']); //'ngRoute',
 
 
   angular
@@ -32,11 +32,15 @@
                 templateUrl: './views/viewpost.html',
                 controller: 'viewPostsController'
             },
+
         }
       });
       $urlRouterProvider.otherwise('/');
       
   }
+
+
+
 
 })();
 
@@ -114,6 +118,7 @@
                  , '$stateParams'
                  , '$http'
                  , '$location'
+                 , '$sce'
                  , 'fetcher'
                  , viewPostsController //<-our controller function
                  ]);
@@ -124,6 +129,7 @@
                          , $stateParams
                          , $http
                          , $location
+                         , $sce
                          , fetcher
                         ){
 
@@ -158,6 +164,27 @@
       return month + " " + day + " " + year;
     }
 
+    $scope.selectPost = function(post){
+
+      $scope.selectedPost = post;
+
+      $("#selectedPost").removeClass("displayNone");  
+      $("#postPreview").addClass("displayNone");
+
+    }
+
+    $scope.goBackButton = function(){
+
+      $("#postPreview").removeClass("displayNone");  
+      $("#selectedPost").addClass("displayNone");
+    }
+
+
+    $scope.trustHTML = function(html){
+      return $sce.trustAsHTML(html);
+    }
+
+
     //$scope.changePage(1);
 
     window.sc = $scope;
@@ -189,9 +216,16 @@
                                 , fetcher
                                 ){
 
+    $scope.froalaOptions = {
+        toolbarButtons : ["bold", "italic", "underline", "|", "align", "image", "formatOL", "formatUL"]
+    }
+    $scope.postToCreate = {};
+
     $scope.createPost = function(){
+      $scope.postToCreate.content = document.querySelector("trix-editor").value;
+      console.log($scope.postToCreate);
       fetcher.createPost($scope.postToCreate); //do postToCreate.something model in html
-      switchToViewPost(); //call to jquery to switch
+      window.location.reload();
     }
 
     window.sc2 = $scope;

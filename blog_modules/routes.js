@@ -69,6 +69,7 @@ app.get('*/node_modules/:folder/:filename', function (req, res){
   res.sendFile(dirname + "/node_modules/"+req.params.folder+"/"+ req.params.filename);
 });
 
+
 app.get('*/js/:scriptname', function (req, res){
   res.sendFile(dirname + "/js/"+req.params.scriptname);
 });
@@ -95,6 +96,10 @@ app.get('*/css/packages/:stylepackagename', function(req,res){
 
 app.get('*/packages/:packagename', function (req, res){
   res.sendFile(dirname + "/packages/"+req.params.packagename);
+});
+
+app.get('*/packages/froala/:packagename', function (req, res){
+  res.sendFile(dirname + "/packages/froala/"+req.params.packagename);
 });
 
 app.get('*/auth/getUsername', auth.isAuth, function (req, res){

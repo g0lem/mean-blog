@@ -1,18 +1,16 @@
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 	
-	<form>
-
+	<form class="trix-content">
+		
+		<a href="#"><button ng-click="createPost()" class="btn btn-default">Post</button></a>
+		
+		<p class="help-block text-danger"></p>
 		<div class="row control-group">
 			<div class="form-group col-xs-12 floating-label-form-group controls">
 				<input ng-model="postToCreate.title" type="text" name="" class="form-control" placeholder="Title"> 
 			</div>
 		</div>
-		<p class="help-block text-danger"></p>
-		<div class="row control-group">
-			<div class="form-group col-xs-12 floating-label-form-group controls" style="height: 50%">
-				<textarea ng-model="postToCreate.content" class="form-control" placeholder="Content" rows="15"></textarea>
-			</div>
-		</div>
+
 		<p class="help-block text-danger"></p>
 		<div class="row control-group">
 			<div class="form-group col-xs-12 floating-label-form-group controls">
@@ -20,7 +18,15 @@
 			</div>
 		</div>
 		<p class="help-block text-danger"></p>
-		<a href="#"><button ng-click="createPost()" class="btn btn-default">Post</button></a>
+
+		<p class="help-block text-danger"></p>
+		<div class="row control-group trix-content">
+			<div class="form-group col-xs-12 floating-label-form-group controls" >
+				<trix-editor ng-model="postToCreate.content" class="form-control" placeholder="Content" class="trix-content"></trix-editor>
+			</div>
+		</div>
+
+	
 	</form>
 
 

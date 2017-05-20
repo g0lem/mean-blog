@@ -12,6 +12,11 @@ app.get('/register', auth.isNotAuth, function (req, res){
   res.sendFile(dirname + "/views/register.html");
 });
 
+
+app.get('/views/:viewname',  function (req, res){
+  res.sendFile(dirname + "/views/" + req.params.viewname);
+});
+
 app.get('/dashboard', auth.isAuth, function (req, res){
   res.sendFile(dirname + "/views/dashboard.html");
 });

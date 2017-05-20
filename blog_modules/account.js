@@ -56,18 +56,11 @@ module.exports = function(app, auth, mongoose){
               // create reusable transporter object using the default SMTP transport
 
               // send mail with defined transport object
-              transporter.sendMail(mailOptions, (error, info) => {
-                  if (error) {
-                      return console.log(error);
-                  }
-                  else{
-                    console.log('Message %s sent: %s', info.messageId, info.response);
+
                     var userInsertObject = new User({ username: escapedUsername.toLowerCase(), password: hashedPassword, sesstoken: token });
                     userInsertObject.save();
                     res.send("Account created!");
-                  }
-              });
-
+ 
               
             }
           });

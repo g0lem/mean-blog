@@ -7,29 +7,6 @@ module.exports = function(app, auth, mongoose){
   var Post =  mongoose.model('Post');
 
 
-  app.get('*/rest/company/:nume', auth.isAuth, function(req,res){
-    
-    Company.findOne({$or: [{cui: req.params.nume}, {email: req.params.nume}]}, function(err, result){
-
-      if(result){
-        var JSONresponse = {
-
-          cui:        result.cui,
-          email:      result.email,
-          nume:       result.nume
-
-        }
-
-        res.send(JSONresponse);
-      }
-      else{
-        res.send(null);
-      }
-
-    });
-
-  });
-
 
 //this returns all the reclamations that were registered by ALL companies
 
@@ -91,7 +68,7 @@ module.exports = function(app, auth, mongoose){
     //check here
 
 
-    var post = new Post({author: req.body.author, title: req.body.title, date: new Date(), content: req.body.content, tags: req.body.tags});
+    var post = new Post({author: req.cookies.username, title: req.body.title, date: new Date(), content: req.body.content, tags: req.body.tags});
     post.save();
 
 

@@ -36,7 +36,7 @@ if( req.cookies.sesid ){
       res.redirect('/login');
     }
     else{
-      res.cookie('username', user.email);
+      res.cookie('username', user.username);
       next();
     }
   });

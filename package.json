@@ -1,0 +1,22 @@
+{
+  "name": "mean-blog",
+  "version": "v0.8.0",
+  "description": "A blog",
+  "author": "Stefan Serb",
+  "dependencies": {
+    "bcryptjs": "^2.1.0",
+    "body-parser": "^1.12.3",
+    "express": "^4.14.0",
+    "fs": "0.0.2",
+    "mongoose": "^4.6.0",
+    "cookie-parser": "latest",
+    "jsonwebtoken": "latest",
+    "multer": "latest",
+    "gridfs-stream": "latest",
+    "node-uuid": "latest",
+    "md5-file": "3.1.1"
+  },
+  "devDependencies": {
+
+  }
+}

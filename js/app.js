@@ -78,7 +78,9 @@
         createPost:   createPost,
         getPost:      getPost,
         getPosts:     getPosts,
-        search:       search
+        removePost:   removePost,
+        search:       search,
+        writeComment: writeComment
 
       }
 
@@ -101,10 +103,23 @@
           });
       };
 
+      function removePost(id){
+          return $http.post("/rest/remove/", id) //HTTP GET CALL to mongodb REST API
+          .then(function(res) {
+            return res.data;
+          });
+      };
 
       function createPost(json){
 
         $http.post("/rest/create/" , json);
+
+      }
+
+
+      function writeComment(id, json){
+
+        $http.post("/rest/comment/"+id , json);
 
       }
 
@@ -213,6 +228,22 @@
       })
     };
 
+    $scope.removePost = function(id){
+
+
+      var pass = prompt("Please enter the admin password:", "");
+
+        var json = {};
+
+        if (pass != null && pass != "") {
+           json.password = pass;
+           json.id = id;
+
+           fetcher.removePost(json);
+         } 
+
+
+    }
 
     //$scope.changePage(1);
 
@@ -252,6 +283,7 @@
 
     $scope.createPost = function(){
       $scope.postToCreate.content = document.querySelector("trix-editor").value;
+      $scope.postToCreate.preview = document.querySelector("trix-editor").editor.getDocument().toString();
       console.log($scope.postToCreate);
       fetcher.createPost($scope.postToCreate); //do postToCreate.something model in html
       window.location.reload();
@@ -299,6 +331,13 @@
       $scope.post = response;    
     });
     
+
+    $scope.writeComment = function(){
+      var json ={
+        body:  document.querySelector("trix-editor").value
+      }
+      fetcher.writeComment($stateParams.post, json);
+    }
 
   }
 

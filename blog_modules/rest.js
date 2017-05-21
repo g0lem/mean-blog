@@ -87,13 +87,48 @@ module.exports = function(app, auth, mongoose){
     if(req.body.title && req.body.content){
 
 
-      var post = new Post({author: req.cookies.username, title: req.body.title, date: new Date(), content: req.body.content, tags: req.body.tags});
+      var post = new Post({author: req.cookies.username, title: req.body.title, date: new Date(),  preview: req.body.preview.substring(0,500) + "...",  content: req.body.content, tags: req.body.tags});
       post.save();
 
     }
 
-});
+  });
 
+  app.post('*/rest/comment/:id', auth.isAuth, function(req,res){
+
+
+    console.log(req.body);
+    Post.where({ _id: req.params.id }).update({ $push : {comments: {author: req.cookies.username, body: req.body.body }}},
+          function(err, result){    
+            if(err)
+              res.send(err);  
+            else{
+              res.send("success");       
+            }
+          });
+
+  });
+
+
+
+
+  app.post('*/rest/remove/', auth.isAuth, function(req,res){
+
+    var stripedName = req.params.query; //secure it
+    //check here
+
+    if(req.body.password == "BDjdCDTZ9AgdZsxCpPEYqS78"){
+
+
+      Post.remove({_id: req.body.id}, function(err, result){
+
+
+      });
+
+
+    }
+
+});
 
 
 

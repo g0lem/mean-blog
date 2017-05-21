@@ -9,4 +9,32 @@
 <hr class="small">
 	<p class="post-subtitle " ng-bind-html="post.content"></p>
 	<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}} <br> <i>Tags: {{post.tags}} </i></p>
+
+
+
+
+	<hr class="medium">
+	<h1 align="center"> <i> Comments: </i></h1>
+	<hr class="medium">
+<br>
+		<p class="help-block text-danger"></p>
+
+		<p class="help-block text-danger"></p>
+		<p class="help-block text-danger"></p>
+		<div class="row control-group trix-content">
+			<div class="form-group col-xs-12 floating-label-form-group controls" >
+				<trix-editor ng-model="comment" placeholder="Comment" class="trix-content"></trix-editor>
+			</div>
+		</div>
+		<p class="help-block text-danger"></p>
+
+
+		<a href="#" align="right"><button ng-click="writeComment()" class="btn btn-me">Post</button></a>
+
+
+		<div ng-repeat="comment in post.comments track by $index">
+		{{comment}}
+		</div>
+
 </div>
+

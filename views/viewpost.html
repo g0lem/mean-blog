@@ -3,7 +3,7 @@
 	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="postPreview">
 
 		<div class="form-group col-xs-12 floating-label-form-group controls">
-	        <input type="text" class="form-control red" name="" placeholder="Search for post" style="width: 85%; display: inline-block;" ng-model="ToSearch">  
+	        <input type="text" class="form-control-me red" name="" placeholder="Search for post" style="width: 85%; display: inline-block;" ng-model="ToSearch">  
 	        <a href="" ng-click="searchQuery(ToSearch)" class="btn"> Search</a>
 	    </div>
 
@@ -15,29 +15,10 @@
 			</a>
 			<hr class="small">
 				<p class="post-subtitle " ng-bind-html="post.content"></p>
-				<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}} <br> <i>Tags: {{post.tags}} </i></p>
-
+				<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}} <br> <i>Tags: {{post.tags}} </i>
+			<p class=post-meta> <a href=""><i ng-click="removePost(post._id)"> Remove Post </i> </a> </p>
 		</div>
 
-
-	</div>
-
-
-
-	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 displayNone" id="selectedPost">
-
-		<div class="form-group col-xs-12 floating-label-form-group controls">
-	        <a href="" ng-click="goBackButton()"> < Go back</a>
-	    </div>
-
-		
-		<br><br>		
-		<a href=""> <!-- do something to make this show you the post -->
-			<h2 class="post-title">{{selectedPost.title}}</h2>
-		</a>
-			<p class="post-subtitle" ng-bind-html="selectedPost.content"></p>
-			<p class=post-meta> <a href="">{{selectedPost.author}}</a> {{getProperDate(selectedPost.date)}} <br><i>Tags:  {{selectedPost.tags}} </i></p>
-		
 
 	</div>
 
@@ -53,3 +34,4 @@
 </div>
 
 {{updateLinkView()}}
+

@@ -152,7 +152,6 @@
 
     fetcher.getPosts().then(function(response){ 
       $scope.posts = response;    
-
     });
     
     $scope.changePage = function(number){
@@ -202,9 +201,17 @@
     }
 
 
-    $scope.trustHTML = function(html){
-      return $sce.trustAsHTML(html);
-    }
+    $scope.updateLinkView = function(html){
+      //$($("figure").closest("div")).find("a").append("view file");
+      $($("figure").closest("div")).each(function(){
+        var link = $(this).find("a").attr("href");
+        var figure = $(this).find("figure");
+        $(this).find("figure").remove();
+        console.log(figure);
+        $(this).append('<a href="'+ link +'">' + figure.html() + '</a>')
+
+      })
+    };
 
 
     //$scope.changePage(1);

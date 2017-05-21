@@ -34,6 +34,15 @@
             },
 
         }
+      })
+      .state('post', {
+        url: '/:post',
+        views:{
+            'viewSinglePost':{
+                templateUrl: './views/viewsinglepost.html',
+                controller: 'viewSinglePostController'
+            },
+        }
       });
       $urlRouterProvider.otherwise('/');
       
@@ -67,6 +76,7 @@
       var o = {
 
         createPost:   createPost,
+        getPost:      getPost,
         getPosts:     getPosts,
         search:       search
 
@@ -79,6 +89,13 @@
 
       function getPosts(){
           return $http.get("/rest/posts/" + $location.search().page) //HTTP GET CALL to mongodb REST API
+          .then(function(res) {
+            return res.data;
+          });
+      };
+
+      function getPost(id){
+          return $http.get("/rest/post/" + id) //HTTP GET CALL to mongodb REST API
           .then(function(res) {
             return res.data;
           });
@@ -237,5 +254,45 @@
 
   }
 
+
+})();
+
+
+
+
+
+(function(){
+
+  'use strict';
+
+  angular
+      .module('BlogApp')
+      .controller('viewSinglePostController', 
+                 [ '$scope'
+                 , '$stateParams'
+                 , '$http'
+                 , '$location'
+                 , '$sce'
+                 , 'fetcher'
+                 , viewSinglePostController //<-our controller function
+                 ]);
+
+
+
+  function viewSinglePostController( $scope
+                         , $stateParams
+                         , $http
+                         , $location
+                         , $sce
+                         , fetcher
+                        ){
+
+
+    fetcher.getPost($stateParams.post).then(function(response){ 
+      $scope.post = response;    
+    });
+    
+
+  }
 
 })();

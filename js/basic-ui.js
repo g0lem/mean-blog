@@ -24,14 +24,16 @@ var preparedJSON = {
         username : $("#username").val() ,
         password : $("#pass").val() ,
       }
+      console.log(preparedJSON);
       //***login account***
       $.post( "/loggingIn", preparedJSON, function( res ) {
 
           $("#status").html(res);
           if(res=="Logged in."){ 
               setTimeout(function(){       
-              window.location.href = ("/");
-            }, 500);
+              //window.location.href = ("/");
+              window.location.reload();
+            }, 1000);
           }
       });  
 });
@@ -94,6 +96,7 @@ function topFunction() {
 
 
 $("#home").on('click', function(){
+    window.location.href = "#";
     window.location.reload();
 });
 

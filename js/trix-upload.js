@@ -110,7 +110,7 @@ uploadAttachment = function(attachment, baseUrl, uploadUrl) {
         var attachment;
         attachment = event.attachment;
         if (attachment.file) {
-            return uploadAttachment(attachment, "/base/url/of/my/future/uploaded/file/without/a/trailing/slash/nor/its/name", "/myapp/trix/upload");
+            return uploadAttachment(attachment, "/getPhoto", "/upload/photos/");
         }
     });
 }).call(this);

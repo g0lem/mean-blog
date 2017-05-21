@@ -9,7 +9,13 @@ preview: String,
 author: String,
 date: String,
 content: String,
-tags: String
+tags: String,
+comments: [{
+
+author: String,
+body: String
+
+}]
 
 
 

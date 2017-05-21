@@ -3,17 +3,18 @@
 	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="postPreview">
 
 		<div class="form-group col-xs-12 floating-label-form-group controls">
-	        <input type="text" class="form-control-inline" name="" placeholder="Search for post" style="width: 85%" ng-model="ToSearch">  
+	        <input type="text" class="form-control red" name="" placeholder="Search for post" style="width: 85%; display: inline-block;" ng-model="ToSearch">  
 	        <a href="" ng-click="searchQuery(ToSearch)" class="btn"> Search</a>
 	    </div>
 
 		<div ng-repeat="post in posts track by $index">
 		
 			<br><br>		
-			<a href="" ng-click="selectPost(post)"> <!-- do something to make this show you the post -->
-				<h2 class="post-title"> {{post.title}}</h2>
+			<a href="/#/{{post._id}}"> <!-- do something to make this show you the post -->
+				<h1 class="post-title stronger" align="center"> {{post.title}}</h1>
 			</a>
-				<p class="post-subtitle " ng-bind-html="post.preview"></p>
+			<hr class="small">
+				<p class="post-subtitle " ng-bind-html="post.content"></p>
 				<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}} <br> <i>Tags: {{post.tags}} </i></p>
 
 

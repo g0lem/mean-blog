@@ -33,7 +33,7 @@ auth.prototype.isAuth = function (req, res, next){
 if( req.cookies.sesid ){
   auth.User.findOne({'sesstoken' : req.cookies.sesid}, function(err, user){
     if(err || user===null){
-      res.redirect('/login');
+      res.redirect('/login?#/');
     }
     else{
       res.cookie('username', user.username);
@@ -42,7 +42,7 @@ if( req.cookies.sesid ){
   });
 }
 else
-  res.redirect('/login');
+  res.redirect('/login?#/');
 }
 
 auth.prototype.isNotAuth = function (req, res, next){

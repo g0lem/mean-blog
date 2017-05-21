@@ -31,7 +31,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #0085A1;
+  color: #9D2933;
 }
 a img:hover,
 a img:focus {
@@ -185,7 +185,6 @@ hr.medium {
 .site-heading:hover{
 
   padding: 100px 0 50px;
-  color: #bdc3c7;
 
 }
 
@@ -260,7 +259,7 @@ hr.medium {
   color: #0085A1;
 }
 .post-preview > a > .post-title {
-  font-size: 30px;
+  font-size: 3em;
   margin-top: 30px;
   margin-bottom: 10px;
 }
@@ -442,7 +441,7 @@ body {
   padding: 0 30px; }
 
 .red {
-  background-color: #c0392b }
+  background-color: #c0262b}
 
 .opacityZero {
   opacity: 0; }
@@ -461,7 +460,8 @@ body {
     z-index: 99; /* Make sure it does not overlap */
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
-    background-color: #bdc3c7;
+    background-color: #F58F84;
+    color: white;
     padding: 15px; /* Some padding */
     width: 55px;
     border-radius: 10px; /* Rounded corners */
@@ -469,12 +469,18 @@ body {
 
 .topButton-default:hover,
 .topButton-default:focus {
-  background-color: #c0392b ;
-  border: 1px solid #c0392b ;
+  background-color: #C3272B ;
+  border: 1px solid #C3272B ;
   color: white;
 }
 
 
 button.attach::before {
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA%2FPjxzdmcgaGVpZ2h0PSIxNnB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAxNiIgd2lkdGg9IjI0cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8%2BPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI%2BPGcgZmlsbD0iIzAwMDAwMCIgaWQ9IkNvcmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMjYuMDAwMDAwLCAtNDYuMDAwMDAwKSI%2BPGcgaWQ9ImJhY2t1cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTI2LjAwMDAwMCwgNDYuMDAwMDAwKSI%2BPHBhdGggZD0iTTE5LjQsNiBDMTguNywyLjYgMTUuNywwIDEyLDAgQzkuMSwwIDYuNiwxLjYgNS40LDQgQzIuMyw0LjQgMCw2LjkgMCwxMCBDMCwxMy4zIDIuNywxNiA2LDE2IEwxOSwxNiBDMjEuOCwxNiAyNCwxMy44IDI0LDExIEMyNCw4LjQgMjEuOSw2LjIgMTkuNCw2IEwxOS40LDYgWiBNMTQsOSBMMTQsMTMgTDEwLDEzIEwxMCw5IEw3LDkgTDEyLDQgTDE3LDkgTDE0LDkgTDE0LDkgWiIgaWQ9IlNoYXBlIi8%2BPC9nPjwvZz48L2c%2BPC9zdmc%2B); 
+}
+
+.stronger{
+
+  font-size: 2.5em;
+
 }

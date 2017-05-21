@@ -1,0 +1,12 @@
+
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+<a href="/#/"> < Go back</a>
+<br><br>		
+<a href="" > <!-- do something to make this show you the post -->
+	<h1 class="post-title stronger" align="center"> {{post.title}}</h1>
+</a>
+<hr class="small">
+	<p class="post-subtitle " ng-bind-html="post.content"></p>
+	<p class=post-meta> <a href="">{{post.author}}</a> {{getProperDate(post.date)}} <br> <i>Tags: {{post.tags}} </i></p>
+</div>

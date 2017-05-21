@@ -26,6 +26,23 @@ module.exports = function(app, auth, mongoose){
 
   });
 
+  app.get('*/rest/post/:id', auth.isAuth, function(req,res){
+
+
+    
+    Post.findOne({_id: req.params.id}, function(err, result){
+
+      if(!err && result){
+        res.send(result);
+      }
+      else{
+        res.send("No results found");
+      }
+    });
+
+  });
+
+
 
   app.get('*/rest/posts/:number', auth.isAuth, function(req,res){
 

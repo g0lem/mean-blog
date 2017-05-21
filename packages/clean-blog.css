@@ -65,7 +65,12 @@ hr.medium {
   border-width: 2px;
   border-color: #2A363B;
 }
-
+hr.smallmedium {
+  max-width:500px;
+  margin: 15px auto;
+  border-width: 2px;
+  border-color: #2A363B;
+}
 
 .navbar-custom {
   position: absolute;

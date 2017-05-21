@@ -133,7 +133,10 @@
                          , fetcher
                         ){
 
-    fetcher.getPosts().then(function(response){ $scope.posts = response; });
+    fetcher.getPosts().then(function(response){ 
+      $scope.posts = response;    
+
+    });
     
     $scope.changePage = function(number){
       $location.url("?page="+number);
@@ -148,7 +151,9 @@
 
     $scope.searchQuery = function(query){
       $location.url("?page=1");
-      $scope.posts = fetcher.search(query);
+      fetcher.search(query).then(function(response){
+        $scope.posts = response;
+      });
       $scope.search = true;
     }
 

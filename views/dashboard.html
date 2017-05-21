@@ -13,6 +13,9 @@
   	 <script src="packages/angular-sanitize.min.js"></script>
 	<script type="text/javascript" src="/packages/jquery-1.11.3.min.js"></script>
 
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="/packages/trix.css">
   	<script type="text/javascript" src="/packages/trix.js"></script>
 
@@ -23,7 +26,7 @@
 </head>
 <body ng-app="BlogApp">
 
-	<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-custom navbar-fixed-top red">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -49,15 +52,17 @@
         <!-- /.container -->
     </nav>
 
-    <header class="intro-header container red">
+    <header class="intro-header container">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
                     	<h1 id="home" style="cursor: pointer;"> Project 50% </h1>
                         
-                        <hr class="small">
+                   		<hr class="medium">
                         <span class="subheading">Sharing is caring.</span>
+                        
+                        <hr class="small">
                     </div>
                 </div>
             </div>
@@ -75,6 +80,7 @@
 <button onclick="topFunction()" class="btn topButton topButton-default" title="Go to top" id="topBtn"> ^ </button>
 
 <script type="text/javascript" src="/js/basic-ui.js"></script>
+<script type="text/javascript" src="/js/trix-upload.js"></script>
 </body>
 </html>
 

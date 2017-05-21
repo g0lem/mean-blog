@@ -68,7 +68,7 @@ module.exports = function(app, auth, mongoose){
     //check here
 
 
-    var post = new Post({author: req.cookies.username, title: req.body.title, date: new Date(), preview: req.body.content.substring(0,50) + "...", content: req.body.content, tags: req.body.tags});
+    var post = new Post({author: req.cookies.username, title: req.body.title, date: new Date(), preview: req.body.content.substring(0,300) + "...", content: req.body.content, tags: req.body.tags});
     post.save();
 
 

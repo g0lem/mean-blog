@@ -33,7 +33,9 @@
 
 
 		<div ng-repeat="comment in post.comments track by $index">
-		{{comment}}
+
+		<p class="post-meta"> <a href=""> <i>{{comment.author}}</i></a> wrote:</p>
+		<p class="post-meta" ng-bind-html="comment.body"></p>
 		</div>
 
 </div>

@@ -31,7 +31,7 @@ module.exports = function(app, auth, mongoose, dirname){
 
   Grid.mongo = mongoose.mongo;
 
-  var gfs = Grid(mongoose.connection.db);
+  var gfs = Grid(mongoose.connection.db, mongoose.mongo);
 
 
 
